@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inauguración de la Casa - González Torres Nayelli</title>
+    <style>
+        :root {
+            --primary: #2c4a3e; /* Verde elegante / oliva oscuro */
+            --accent: #bfa15f;  /* Dorado suave */
+            --text: #333333;
+            --bg: #fdfbf7;      /* Crema cálido de fondo */
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .invitation-card {
+            background-color: var(--white);
+            max-width: 550px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid rgba(191, 161, 95, 0.2);
+            text-align: center;
+            position: relative;
+        }
+
+        /* Adorno superior premium */
+        .invitation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+        }
+
+        .header-section {
+            padding: 40px 30px 20px 30px;
+            background: linear-gradient(to bottom, #fbf9f3, var(--white));
+        }
+
+        .header-section h2 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .header-section h1 {
+            font-family: 'Georgia', serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent);
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .divider::after {
+            content: '✦';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            padding: 0 6px;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .content-section {
+            padding: 10px 40px 30px 40px;
+        }
+
+        .host-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .message {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .details-box {
+            background-color: #f9f7f2;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent);
+            text-align: left;
+        }
+
+        .detail-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: var(--primary);
+            min-width: 90px;
+            display: inline-block;
+        }
+
+        .detail-value {
+            color: #444;
+        }
+
+        .qr-section {
+            background-color: #fdfbf7;
+            border: 1px dashed var(--accent);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .qr-title {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .qr-container {
+            background: var(--white);
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .qr-code-svg {
+            width: 160px;
+            height: 160px;
+            display: block;
+        }
+
+        .btn-maps {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44, 74, 62, 0.2);
+        }
+
+        .btn-maps:hover {
+            background-color: #1e332b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 74, 62, 0.3);
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #888;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-card">
+        <div class="header-section">
+            <h2>Te invito a mi</h2>
+            <h1>Inauguración de Casa</h1>
+            <div class="divider"></div>
+        </div>
+
+        <div class="content-section">
+            <!-- Nombre personalizado solicitado -->
+            <div class="host-name">GONZÁLEZ TORRES NAYELLI</div>
+            
+            <p class="message">
+                "Con gran ilusión y alegría, abro las puertas de mi nuevo hogar. Me encantaría que me acompañes a celebrar este nuevo comienzo lleno de sueños y bendiciones."
+            </p>
+
+            <div class="details-box">
+                <div class="detail-item">
+                    <span class="detail-label">Fecha:</span>
+                    <span class="detail-value">Sábado de Celebración</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Hora:</span>
+                    <span class="detail-value">18:00 hrs</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Dirección:</span>
+                    <span class="detail-value">Ubicación exacta disponible escaneando el código o usando el botón inferior.</span>
+                </div>
+            </div>
+
+            <div class="qr-section">
+                <span class="qr-title">ESCANEA PARA ACCEDER A GOOGLE MAPS</span>
+                
+                <div class="qr-container">
+                    <!-- Código QR vectorizado auto-contenido -->
+                    <svg class="qr-code-svg" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="29" height="29" fill="white"/>
+                        <rect x="0" y="0" width="7" height="7" fill="#2c4a3e"/>
+                        <rect x="1" y="1" width="5" height="5" fill="white"/>
+                        <rect x="2" y="2" width="3" height="3" fill="#2c4a3e"/>
+                        <rect x="22" y="0" width="7" height="7" fill="#2c4a3e"/>
+                        <rect x="23" y="1" width="5" height="5" fill="white"/>
+                        <rect x="24" y="2" width="3" height="3" fill="#2c4a3e"/>
+                        <rect x="0" y="22" width="7" height="7" fill="#2c4a3e"/>
+                        <rect x="1" y="23" width="5" height="5" fill="white"/>
+                        <rect x="2" y="24" width="3" height="3" fill="#2c4a3e"/>
+                        <rect x="20" y="20" width="5" height="5" fill="#2c4a3e"/>
+                        <rect x="21" y="21" width="3" height="3" fill="white"/>
+                        <rect x="22" y="22" width="1" height="1" fill="#2c4a3e"/>
+                        <rect x="8" y="2" width="1" height="1" fill="#2c4a3e"/>
+                        <rect x="10" y="2" width="2" height="1" fill="#2c4a3e"/>
+                        <rect x="14" y="1" width="1" height="3" fill="#2c4a3e"/>
+                        <rect x="17" y="0" width="2" height="2" fill="#2c4a3e"/>
+                        <rect x="20" y="2" width="1" height="4" fill="#2c4a3e"/>
+                        <rect x="8" y="4" width="3" height="1" fill="#2c4a3e"/>
+                        <rect x="12" y="5" width="2" height="2" fill="#2c4a3e"/>
+                        <rect x="16" y="4" width="3" height="1" fill="#2c4a3e"/>
+                        <rect x="2" y="9" width="2" height="2" fill="#2c4a3e"/>
+                        <rect x="6" y="8" width="1" height="3" fill="#2c4a3e"/>
+                        <rect x="9" y="8" width="4" height="1" fill="#2c4a3e"/>
+                        <rect x="15" y="7" width="2" height="3" fill="#2c4a3e"/>
+                        <rect x="19" y="9" width="3" height="1" fill="#2c4a3e"/>
+                        <rect x="24" y="8" width="2" height="4" fill="#2c4a3e"/>
+                        <rect x="0" y="13" width="4" height="1" fill="#2c4a3e"/>
+                        <rect x="5" y="12" width="3" height="2" fill="#2c4a3e"/>
+                        <rect x="10" y="14" width="2" height="1" fill="#2c4a3e"/>
+                        <rect x="13" y="12" width="4" height="2" fill="#2c4a3e"/>
+                        <rect x="19" y="13" width="1" height="3" fill="#2c4a3e"/>
+                        <rect x="22" y="14" width="3" height="1" fill="#2c4a3e"/>
+                        <rect x="27" y="13" width="2" height="2" fill="#2c4a3e"/>
+                        <rect x="2" y="17" width="3" height="2" fill="#2c4a3e"/>
+                        <rect x="7" y="16" width="2" height="1" fill="#2c4a3e"/>
+                        <rect x="11" y="17" width="1" height="4" fill="#2c4a3e"/>
+                        <rect x="14" y="16" width="3" height="2" fill="#2c4a3e"/>
+                        <rect x="18" y="18" width="2" height="1" fill="#2c4a3e"/>
+                        <rect x="26" y="17" width="3" height="1" fill="#2c4a3e"/>
+                        <rect x="8" y="21" width="2" height="2" fill="#2c4a3e"/>
+                        <rect x="13" y="23" width="3" height="1" fill="#2c4a3e"/>
+                        <rect x="18" y="22" width="1" height="3" fill="#2c4a3e"/>
+                        <rect x="26" y="21" width="2" height="3" fill="#2c4a3e"/>
+                        <rect x="9" y="26" width="4" height="2" fill="#2c4a3e"/>
+                        <rect x="15" y="27" width="2" height="1" fill="#2c4a3e"/>
+                        <rect x="22" y="26" width="3" height="2" fill="#2c4a3e"/>
+                    </svg>
+                </div>
+
+                <!-- Enlace solicitado a Google Maps -->
+                <a href="https://maps.app.goo.gl/JPCASBeMfzUoXNTi6" target="_blank" class="btn-maps">Ver en Google Maps</a>
+            </div>
+
+            <p class="footer-note">¡Te espero para celebrar juntos!</p>
+        </div>
+    </div>
+
+</body>
+</html>
