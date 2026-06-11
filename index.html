@@ -3,15 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inauguración de la Casa - González Torres Nayelli</title>
+    <title>¡Inauguración de Mi Nuevo Hogar! - Nayelli González Torres</title>
     <style>
-        :root {
-            --primary: #2c4a3e; /* Verde elegante / oliva oscuro */
-            --accent: #bfa15f;  /* Dorado suave */
-            --text: #333333;
-            --bg: #fdfbf7;      /* Crema cálido de fondo */
-            --white: #ffffff;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;600&display=swap');
 
         * {
             box-sizing: border-box;
@@ -20,289 +14,304 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .invitation-card {
-            background-color: var(--white);
-            max-width: 550px;
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            border: 1px solid rgba(191, 161, 95, 0.2);
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f7f5f0;
+            color: #333;
+            overflow-x: hidden;
             text-align: center;
-            position: relative;
         }
 
-        /* Adorno superior premium */
-        .invitation-card::before {
-            content: '';
-            position: absolute;
+        /* Lienzo para los efectos de celebración (Confeti) */
+        #canvas-confetti {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
         }
 
-        .header-section {
-            padding: 40px 30px 20px 30px;
-            background: linear-gradient(to bottom, #fbf9f3, var(--white));
+        .invitation-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #eadeca;
         }
 
-        .header-section h2 {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--accent);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .header-section h1 {
-            font-family: 'Georgia', serif;
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-weight: normal;
-            font-style: italic;
-        }
-
-        .divider {
-            width: 60px;
-            height: 2px;
-            background-color: var(--accent);
-            margin: 20px auto;
+        .header-banner {
+            background: linear-gradient(135deg, #c5a880 0%, #eadeca 100%);
+            padding: 40px 20px;
+            color: #fff;
             position: relative;
         }
 
-        .divider::after {
-            content: '✦';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--white);
-            padding: 0 6px;
-            color: var(--accent);
-            font-size: 0.8rem;
+        .header-banner h1 {
+            font-family: 'Alex Brush', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            color: #4a3e2e;
         }
 
-        .content-section {
-            padding: 10px 40px 30px 40px;
-        }
-
-        .host-name {
-            font-size: 1.25rem;
+        .header-banner p {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #5a4e3e;
             font-weight: 600;
-            color: var(--primary);
-            letter-spacing: 1px;
-            margin-bottom: 25px;
+        }
+
+        .video-container {
+            width: 100%;
+            padding: 20px;
+            background: #fff;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            outline: none;
+        }
+
+        .details {
+            padding: 30px 25px;
+        }
+
+        .protagonist {
+            font-family: 'Alex Brush', cursive;
+            font-size: 3.2rem;
+            color: #c5a880;
+            margin: 15px 0;
         }
 
         .message {
             font-size: 1.05rem;
-            color: #555;
+            line-height: 1.6;
+            color: #666;
             margin-bottom: 30px;
             font-style: italic;
         }
 
-        .details-box {
-            background-color: #f9f7f2;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-left: 4px solid var(--accent);
-            text-align: left;
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 35px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
         }
 
-        .detail-item {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
+        .info-item h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #c5a880;
+            margin-bottom: 5px;
         }
 
-        .detail-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .detail-label {
-            font-weight: bold;
-            color: var(--primary);
-            min-width: 90px;
-            display: inline-block;
-        }
-
-        .detail-value {
+        .info-item p {
+            font-size: 1.1rem;
+            font-weight: 600;
             color: #444;
         }
 
         .qr-section {
-            background-color: #fdfbf7;
-            border: 1px dashed var(--accent);
-            border-radius: 12px;
+            background: #faf8f5;
             padding: 25px;
+            border-radius: 15px;
             margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            border: 1px dashed #c5a880;
         }
 
-        .qr-title {
-            font-size: 0.85rem;
-            color: var(--primary);
-            font-weight: 600;
+        .qr-section h3 {
+            font-size: 1.1rem;
             margin-bottom: 15px;
-            letter-spacing: 0.5px;
+            color: #4a3e2e;
         }
 
-        .qr-container {
-            background: var(--white);
-            padding: 12px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-
-        .qr-code-svg {
-            width: 160px;
-            height: 160px;
+        .qr-image {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 15px auto;
             display: block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            background: #fff;
+            padding: 10px;
         }
 
-        .btn-maps {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--white);
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-size: 0.95rem;
+        .btn-celebrate {
+            background: #c5a880;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(197, 168, 128, 0.4);
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(44, 74, 62, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
         }
 
-        .btn-maps:hover {
-            background-color: #1e332b;
+        .btn-celebrate:hover {
+            background: #b3966e;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(44, 74, 62, 0.3);
+            box-shadow: 0 7px 20px rgba(197, 168, 128, 0.6);
         }
 
-        .footer-note {
-            margin-top: 30px;
+        .footer {
+            padding: 20px;
             font-size: 0.85rem;
-            color: #888;
-            letter-spacing: 0.5px;
+            color: #999;
         }
     </style>
 </head>
 <body>
 
-    <div class="invitation-card">
-        <div class="header-section">
-            <h2>Te invito a mi</h2>
-            <h1>Inauguración de Casa</h1>
-            <div class="divider"></div>
+    <canvas id="canvas-confetti"></canvas>
+
+    <div class="invitation-container">
+        <div class="header-banner">
+            <p>¡Nos Mudamos!</p>
+            <h1>Nuestra Inauguración</h1>
         </div>
 
-        <div class="content-section">
-            <!-- Nombre personalizado solicitado -->
-            <div class="host-name">GONZÁLEZ TORRES NAYELLI</div>
+        <div class="video-container">
+            <video controls autoplay muted loop>
+                <source src="House shower.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de este video.
+            </video>
+        </div>
+
+        <div class="details">
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; color: #888;">Con gran alegría junto a</p>
+            <div class="protagonist">Nayelli González Torres</div>
             
             <p class="message">
-                "Con gran ilusión y alegría, abro las puertas de mi nuevo hogar. Me encantaría que me acompañes a celebrar este nuevo comienzo lleno de sueños y bendiciones."
+                "Un nuevo hogar es el comienzo de nuevos sueños, recuerdos y risas compartidas. 
+                Quiero celebrar este momento tan especial contigo en mi nueva casa."
             </p>
 
-            <div class="details-box">
-                <div class="detail-item">
-                    <span class="detail-label">Fecha:</span>
-                    <span class="detail-value">Sábado de Celebración</span>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>Fecha</h3>
+                    <p>Próximamente</p>
                 </div>
-                <div class="detail-item">
-                    <span class="detail-label">Hora:</span>
-                    <span class="detail-value">18:00 hrs</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Dirección:</span>
-                    <span class="detail-value">Ubicación exacta disponible escaneando el código o usando el botón inferior.</span>
+                <div class="info-item">
+                    <h3>Hora</h3>
+                    <p>Por Confirmar</p>
                 </div>
             </div>
 
             <div class="qr-section">
-                <span class="qr-title">ESCANEA PARA ACCEDER A GOOGLE MAPS</span>
-                
-                <div class="qr-container">
-                    <!-- Código QR vectorizado auto-contenido -->
-                    <svg class="qr-code-svg" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="29" height="29" fill="white"/>
-                        <rect x="0" y="0" width="7" height="7" fill="#2c4a3e"/>
-                        <rect x="1" y="1" width="5" height="5" fill="white"/>
-                        <rect x="2" y="2" width="3" height="3" fill="#2c4a3e"/>
-                        <rect x="22" y="0" width="7" height="7" fill="#2c4a3e"/>
-                        <rect x="23" y="1" width="5" height="5" fill="white"/>
-                        <rect x="24" y="2" width="3" height="3" fill="#2c4a3e"/>
-                        <rect x="0" y="22" width="7" height="7" fill="#2c4a3e"/>
-                        <rect x="1" y="23" width="5" height="5" fill="white"/>
-                        <rect x="2" y="24" width="3" height="3" fill="#2c4a3e"/>
-                        <rect x="20" y="20" width="5" height="5" fill="#2c4a3e"/>
-                        <rect x="21" y="21" width="3" height="3" fill="white"/>
-                        <rect x="22" y="22" width="1" height="1" fill="#2c4a3e"/>
-                        <rect x="8" y="2" width="1" height="1" fill="#2c4a3e"/>
-                        <rect x="10" y="2" width="2" height="1" fill="#2c4a3e"/>
-                        <rect x="14" y="1" width="1" height="3" fill="#2c4a3e"/>
-                        <rect x="17" y="0" width="2" height="2" fill="#2c4a3e"/>
-                        <rect x="20" y="2" width="1" height="4" fill="#2c4a3e"/>
-                        <rect x="8" y="4" width="3" height="1" fill="#2c4a3e"/>
-                        <rect x="12" y="5" width="2" height="2" fill="#2c4a3e"/>
-                        <rect x="16" y="4" width="3" height="1" fill="#2c4a3e"/>
-                        <rect x="2" y="9" width="2" height="2" fill="#2c4a3e"/>
-                        <rect x="6" y="8" width="1" height="3" fill="#2c4a3e"/>
-                        <rect x="9" y="8" width="4" height="1" fill="#2c4a3e"/>
-                        <rect x="15" y="7" width="2" height="3" fill="#2c4a3e"/>
-                        <rect x="19" y="9" width="3" height="1" fill="#2c4a3e"/>
-                        <rect x="24" y="8" width="2" height="4" fill="#2c4a3e"/>
-                        <rect x="0" y="13" width="4" height="1" fill="#2c4a3e"/>
-                        <rect x="5" y="12" width="3" height="2" fill="#2c4a3e"/>
-                        <rect x="10" y="14" width="2" height="1" fill="#2c4a3e"/>
-                        <rect x="13" y="12" width="4" height="2" fill="#2c4a3e"/>
-                        <rect x="19" y="13" width="1" height="3" fill="#2c4a3e"/>
-                        <rect x="22" y="14" width="3" height="1" fill="#2c4a3e"/>
-                        <rect x="27" y="13" width="2" height="2" fill="#2c4a3e"/>
-                        <rect x="2" y="17" width="3" height="2" fill="#2c4a3e"/>
-                        <rect x="7" y="16" width="2" height="1" fill="#2c4a3e"/>
-                        <rect x="11" y="17" width="1" height="4" fill="#2c4a3e"/>
-                        <rect x="14" y="16" width="3" height="2" fill="#2c4a3e"/>
-                        <rect x="18" y="18" width="2" height="1" fill="#2c4a3e"/>
-                        <rect x="26" y="17" width="3" height="1" fill="#2c4a3e"/>
-                        <rect x="8" y="21" width="2" height="2" fill="#2c4a3e"/>
-                        <rect x="13" y="23" width="3" height="1" fill="#2c4a3e"/>
-                        <rect x="18" y="22" width="1" height="3" fill="#2c4a3e"/>
-                        <rect x="26" y="21" width="2" height="3" fill="#2c4a3e"/>
-                        <rect x="9" y="26" width="4" height="2" fill="#2c4a3e"/>
-                        <rect x="15" y="27" width="2" height="1" fill="#2c4a3e"/>
-                        <rect x="22" y="26" width="3" height="2" fill="#2c4a3e"/>
-                    </svg>
-                </div>
-
-                <!-- Enlace solicitado a Google Maps -->
-                <a href="https://maps.app.goo.gl/JPCASBeMfzUoXNTi6" target="_blank" class="btn-maps">Ver en Google Maps</a>
+                <h3>Escanea el QR para ver la ubicación</h3>
+                <img class="qr-image" src="data:image/png;base64,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" alt="Código QR Ubicación">
+                <p style="font-size: 0.85rem; color: #777;">Escanea con tu celular para abrir la dirección en el mapa.</p>
             </div>
 
-            <p class="footer-note">¡Te espero para celebrar juntos!</p>
+            <button class="btn-celebrate" onclick="triggerCelebration()">¡Festejar!</button>
+        </div>
+
+        <div class="footer">
+            Te esperamos con los brazos abiertos • Favor de confirmar asistencia
         </div>
     </div>
 
+    <script>
+        // Sistema Animado de Confeti (HTML5 Canvas)
+        const canvas = document.getElementById('canvas-confetti');
+        const ctx = canvas.getContext('2d');
+        let confetti = [];
+        const confettiCount = 120;
+        const colors = ['#c5a880', '#eadeca', '#f4e1d2', '#4a3e2e', '#ffd700', '#ffffff'];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class ConfettiParticle {
+            constructor(isBurst = false) {
+                this.x = Math.random() * canvas.width;
+                // Si es ráfaga empieza abajo, si es caída normal empieza arriba
+                this.y = isBurst ? canvas.height + 10 : Math.random() * canvas.height - canvas.height;
+                this.size = Math.random() * 8 + 5;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.speedX = Math.random() * 4 - 2;
+                this.speedY = isBurst ? -(Math.random() * 6 + 6) : Math.random() * 2 + 2;
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 4 - 2;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.rotation += this.rotationSpeed;
+
+                // Gravedad ligera para las ráfagas que suben
+                if (this.speedY < 0) this.speedY += 0.1; 
+
+                // Reiniciar partículas que caen fuera de la pantalla
+                if (this.y > canvas.height) {
+                    this.y = -20;
+                    this.x = Math.random() * canvas.width;
+                    this.speedY = Math.random() * 2 + 2;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation * Math.PI / 180);
+                ctx.fillStyle = this.color;
+                ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                ctx.restore();
+            }
+        }
+
+        function initConfetti() {
+            confetti = [];
+            for (let i = 0; i < confettiCount; i++) {
+                confetti.push(new ConfettiParticle(false));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            confetti.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        // Activa una lluvia extra desde abajo al presionar el botón
+        function triggerCelebration() {
+            for (let i = 0; i < 60; i++) {
+                confetti.push(new ConfettiParticle(true));
+            }
+            // Controlar rendimiento limitando partículas máximas
+            if (confetti.length > 300) {
+                confetti.splice(0, 60);
+            }
+        }
+
+        // Inicializar
+        initConfetti();
+        animate();
+    </script>
 </body>
 </html>
